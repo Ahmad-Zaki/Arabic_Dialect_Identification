@@ -3,3 +3,4 @@
 **/*.py[cod]
 **/*$py.class
 venv/*
+Datasets/dialect_dataset.csv
