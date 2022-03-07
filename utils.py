@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import pandas as pd
 from sklearn.metrics import ConfusionMatrixDisplay, classification_report
 from typing import Any
 
@@ -58,3 +59,20 @@ def report(split: str, y_true: Any, y_pred: Any, precision: int = 4) -> None:
 
     print(f"  {split} set Classification Report:")
     print(classification_report(y_true, y_pred, digits = precision))
+
+
+def feature_importance(model: Any, feature_names: list[str]) -> None:
+    """View the most predictive features from any tree-based model.
+
+    parameters
+    ----------
+    model:
+        Any Tree-based model that has 'feature_importances_' method.
+
+    feature_names: list[str]
+        List that contains the names of each feature.
+    """
+    
+    importance = pd.DataFrame(model.feature_importances_, index= feature_names).sort_values(0)
+    importance.plot(kind='barh', title="Feature Importance")
+    plt.show()
