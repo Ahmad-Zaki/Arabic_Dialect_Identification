@@ -14,6 +14,8 @@ class ArabicTextNormalizer(BaseEstimator, TransformerMixin):
     - Replace faa-with-3-dot(ڤ) with regular faa(ف).
     - Replace fancy-kaf(گ) with regular kaf(ك).
     - Limit any repeating character to a length 2.
+    - Remove mentions, URLs, and hashtags.
+    - Limit consecutive whitespace characters to 1.
     - Remove any non-arabic letters (Digits, Special characters, URLS,Punctuation, Mentions, Emojis, diacritics).
     """
 
@@ -29,6 +31,8 @@ class ArabicTextNormalizer(BaseEstimator, TransformerMixin):
                 .str.replace(r"[ڤ]", "ف")
                 .str.replace(r"[گ]", "ك")
                 .str.replace(r"(.)\1{3,}", r"\1\1")
+                .str.replace(r"(?:\@|https?\://|#)\S+", "")
+                .str.replace(r"\s+", " ")
                 .str.replace(r"[^ابتثجحخدذرزسشصضطظعغفقكلمنهوي ]+", ""))
         return X_
 
