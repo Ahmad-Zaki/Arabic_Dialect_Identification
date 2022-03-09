@@ -4,3 +4,4 @@
 **/*$py.class
 venv/*
 Datasets/dialect_dataset.csv
+storage/*
