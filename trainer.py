@@ -93,9 +93,8 @@ class Trainer():
         x_train, x_test, y_train, y_test = train_test_split(text, 
                                                             labels, 
                                                             train_size=0.2)
-        preprocess = preprocessing_pipeline(["tfidf"],
-                                            ngram_range=(1, 5), 
-                                            min_df=10)
+        preprocess = preprocessing_pipeline(["normalization","tfidf"],
+                                            victorizer_kwarg = dict(ngram_range=(1, 5), min_df=10))
         clf = LogisticRegression()
         self._pipeline = make_pipeline(preprocess, clf)
 
