@@ -12,7 +12,7 @@ class ArabicTextNormalizer(BaseEstimator, TransformerMixin):
     Parameters
     ----------
     alef: bool, default = False
-        Replace all alef-with-hamza(أإآ) with alef(أ).
+        Replace all alef-with-hamza(أإآ) with alef(ا).
 
     taa: bool, default = False
         Replace taa-marbota(ة) with haa(ه).
@@ -39,7 +39,7 @@ class ArabicTextNormalizer(BaseEstimator, TransformerMixin):
         Limit any repeating character to a length 2.
 
     spaces: bool, default = False
-        Replace any whitespace character('\n','\t', ' ') with a single space (' ').
+        Replace any repeated whitespace character('\n','\t', ' ') with a single space (' ').
 
     non_arabic: bool, default = False
         Remove any non-arabic letters (Digits, Special characters, URLS, Punctuation, Mentions, Emojis, diacritics).
