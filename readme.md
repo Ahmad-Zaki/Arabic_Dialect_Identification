@@ -14,7 +14,6 @@ conda create --name <env_name> --file requirements.txt
 ```
 
 ## Method
-### Machine learning
 
 -  Start by fetching the text data from API using `fetch_data.py` script.
 ```
@@ -22,6 +21,8 @@ python fetch_data.py
 ```
 
 - **Exploratory Data Analysis:** you can see the EDA steps in [EDA_notebook.ipynb](EDA_notebook.ipynb).
+
+### Machine Learning Approach
 
 - **Preprocessing:** 
   
@@ -328,7 +329,7 @@ python fetch_data.py
   ]
 ```
 
-### Deep learning
+### Deep Learning Approach
   - **Preprocessing:** 
     
       1- Text Normalization: Done using ArabicTextNormalizer, found in [preprocessing.py](preprocessing.py#L9)
@@ -336,8 +337,6 @@ python fetch_data.py
       2- Tokenization and padding: Used Tokeniner with num_words=100000 and max. sequence length of 50.
 
       3- Split the dataset into training, validation, and testing splits with (8:1:1) ratio.
-
-      - Note: Other methods were tested for Preprocessing, you can see it in [preprocessing.py](preprocessing.py).
 
   - **Model Structure:** 
       - Embedding layer with dim = 100.
